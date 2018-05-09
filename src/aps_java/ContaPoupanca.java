@@ -9,6 +9,6 @@ package aps_java;
  *
  * @author lab652
  */
-public class contaPoupanca {
+public class ContaPoupanca {
     
 }

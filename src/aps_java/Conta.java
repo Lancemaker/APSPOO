@@ -4,7 +4,7 @@ package aps_java;
  *
  * @author Daniel Cadete 21029862
  */
-public class conta {
+public class Conta {
     private String nomeCliente, CPF, numConta, agencia;
     private double saldo;
 
@@ -50,7 +50,7 @@ public class conta {
         this.saldo = saldo;
     }
 
-    public conta(String nomeCliente, String CPF, String numConta, String agencia) {
+    public Conta(String nomeCliente, String CPF, String numConta, String agencia) {
         this.nomeCliente = nomeCliente;
         this.CPF = CPF;
         this.numConta = numConta;
