@@ -57,7 +57,7 @@ public class Conta {
         this.agencia = agencia;
     }
     
-    public boolean sacar(Objconta.valorSacado,double saldo){
+   /* public boolean sacar(Objconta.valorSacado,double saldo){
         if(valorSacado<saldo){
             saldo-= valorSacado;
             return true;
@@ -71,5 +71,5 @@ public class Conta {
             return true;
         }
             return false;
-    }
+    }*/
 }
