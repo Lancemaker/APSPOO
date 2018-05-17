@@ -4,7 +4,10 @@ Tema 1 – Conta de Banco – do ponto de vista do banco
 
 Modelagem das classes:
 
-Classe conta: classe abstrata
+Classe conta: 
+-
+classe abstrata
+
 Atributos:
 
 * Número da conta;
@@ -13,14 +16,19 @@ Atributos:
 * Saldo;
 
 Métodos:
+
 * public boolean sacar(valorSacado);
 * public boolean depositar(valorDepositado);
 * public String imprimir();
+
 Construtor: que receba o número da conta, código da agência, nome do cliente e CPF;
 Todos os atributos deverão ter get, porém o saldo, o número da conta e CPF não poderão ter
 sets públicos.
 
-Classe conta corrente: Herda a classe conta, e adiciona as seguintes modificações:
+Classe conta corrente: 
+-
+Herda a classe conta, e adiciona as seguintes modificações:
+
 Atributos:
 * Limite;
 
@@ -30,17 +38,22 @@ Métodos:
 * Reimplementação do sacar, que deve considerar o limite – mesma assinatura do
 método original, apenas com reimplementação;
 * Mudanças no imprimir, que deve retornar também o limite da conta;
+ 
 Construtor: gera dois construtores: um que recebe apenas os parâmetros necessários ao
 construtor da classe conta, e outro que recebe os mesmos parâmetros mais o limite da conta.
 
-Classe conta poupança: Herda a classe conta, e não adiciona atributos.
+Classe conta poupança: 
+-
+Herda a classe conta, e não adiciona atributos.
 
 Métodos:
 
 * public void calculaRendimento(porcentagemRendimento): aplica o valor de rendimento
 recebido por parâmetro ao saldo da conta;
 
-Classe conta especial: Herda de conta corrente, e indica uma conta que possui um gerente
+Classe conta especial: 
+-
+Herda de conta corrente, e indica uma conta que possui um gerente
 associado. Para tanto, adiciona as seguintes modificações:
 
 Atributos:
@@ -53,7 +66,9 @@ Construtor: adiciona o nome do gerente aos dois construtores da classe conta cor
 seja, um construtor recebe os três parâmetros necessários à classe conta, mais o nome do
 gerente, e o outro construtor recebe todos esses parâmetros e ainda o limite da conta;
 
-Classe gerenciarContas – reúne todas as contas criadas
+Classe gerenciarContas :
+-
+reúne todas as contas criadas
 
 Atributos:
 
@@ -81,6 +96,8 @@ conta indicada e realizar o depósito. Caso não encontre o número da conta, ou
 depósito falhe, retornar false;
 * public String listarContas() – retorna uma String com os dados de todas as contas;
 
-Método main: menu com acesso a todas as opções. No adicionar, lembrar que é possível criar
+Método main:
+-
+menu com acesso a todas as opções. No adicionar, lembrar que é possível criar
 uma conta de qualquer um dos três tipos – então você deve perguntar ao usuário qual ele quer;
 
