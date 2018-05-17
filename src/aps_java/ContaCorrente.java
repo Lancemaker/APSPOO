@@ -6,8 +6,25 @@
 package aps_java;
 
 /**
- *
- * @author lab652
+ Classe conta corrente: Herda a classe conta, e adiciona as seguintes modificações:
+
+
+Atributos:
+Limite;
+
+Métodos:
+
+public boolean usandoLimite() – retorna true se o cliente estiver utilizando o limite
+(saldo negativo), e false em caso contrário;
+
+Reimplementação do sacar, que deve considerar o limite – mesma assinatura do método original,
+ apenas com reimplementação;
+ 
+Mudanças no imprimir, que deve retornar também o limite da conta; 
+
+Construtor: gera dois construtores: um que recebe apenas os parâmetros
+ necessários ao construtor da classe conta,
+e outro que recebe os mesmos parâmetros mais o limite da conta.
  */
 public class ContaCorrente {
     

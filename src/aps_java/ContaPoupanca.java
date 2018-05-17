@@ -6,9 +6,16 @@
 package aps_java;
 
 /**
- *
- * @author lab652
+Classe conta poupança: Herda a classe conta, e não adiciona atributos.
+
+Métodos:
+
+public void calculaRendimento(porcentagemRendimento): 
+aplica o valor de rendimento recebido por parâmetro ao saldo da conta;
  */
+
+
+//muito facil!
 public class ContaPoupanca {
     
 }

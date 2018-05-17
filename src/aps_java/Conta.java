@@ -1,8 +1,20 @@
 package aps_java;
 
 /**
- *
- * @author Daniel Cadete 21029862
+ Classe conta: classe abstrata Atributos:
+
+Número da conta;
+Nome do cliente;
+CPF;
+Saldo;
+Métodos:
+
+public boolean sacar(valorSacado);
+public boolean depositar(valorDepositado);
+public String imprimir(); 
+Construtor: que receba o número da conta, código da agência,
+nome do cliente e CPF; Todos os atributos deverão ter get, porém o saldo,
+ o número da conta e CPF não poderão ter sets públicos. 
  */
 public class Conta {
     private String nomeCliente, CPF, numConta, agencia;
@@ -49,7 +61,7 @@ public class Conta {
     private void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-
+    //construtor
     public Conta(String nomeCliente, String CPF, String numConta, String agencia) {
         this.nomeCliente = nomeCliente;
         this.CPF = CPF;
@@ -72,4 +84,5 @@ public class Conta {
         }
             return false;
     }*/
+    //falta o metodo imprimir.
 }
