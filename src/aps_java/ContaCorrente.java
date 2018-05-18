@@ -26,6 +26,11 @@ Construtor: gera dois construtores: um que recebe apenas os parâmetros
  necessários ao construtor da classe conta,
 e outro que recebe os mesmos parâmetros mais o limite da conta.
  */
-public class ContaCorrente {
+public class ContaCorrente extends Conta{
+
+	public ContaCorrente(String nomeCliente, String CPF, String numConta, String agencia) {
+		super(nomeCliente, CPF, numConta, agencia);
+		// TODO Auto-generated constructor stub
+	}
     
 }

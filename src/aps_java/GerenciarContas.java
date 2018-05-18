@@ -40,6 +40,55 @@ criar uma conta de qualquer um dos três tipos – então você deve perguntar ao usu
 qual ele quer;
  */
 
-public class GerenciarContas {
+import java.util.ArrayList;
 
+public class GerenciarContas {
+private ArrayList<Conta> contas = new ArrayList<Conta>();
+
+	//metodos:
+	
+	//adiciona uma conta à lista. 
+	public void adicionarConta(Conta c) {
+		contas.add(c);
+	}
+	
+	public boolean removerConta(int numeroConta) {
+		for(int i=0; i<contas.size();i++) {
+			if(contas.get(i).getNumConta().equals(Integer.toString(numeroConta))) {
+			contas.remove(i);
+			return true;
+			}
+		}
+		return false;
+	}
+	
+	public String buscarContasEspeciais() {
+		String string="";
+		for(int i=0; i<contas.size();i++) {
+			if(contas.get(i) instanceof ContaEspecial) {					
+					string+= contas.get(i).getNumConta();//refatorar quando o metodo imprimir da classe ContaEspecial estiver pronto Deveria retornar todos os dados e nao so o numero da conta.
+			}		
+		}
+		return string;
+	}
+	
+	public String buscarClientesUsandoLimite() {
+		return "Precisa refatorar";		//Atributo limite ainda nao foi implementado na classe ContaCorrente.
+	}
+	
+	public Conta buscarConta(int numeroConta) {
+		for(int i=0; i<contas.size();i++) {
+			if(contas.get(i).getNumConta().equals(Integer.toString(numeroConta))) {			
+			return contas.get(i);
+			}
+		}
+		return null;	
+	}
+	
+	public boolean transferirValor(int numeroContaFonte, int numeroContaDestino, double valor) {
+		return true;//refatorar Parei aqui. 
+	}
+	
+	
+	
 }

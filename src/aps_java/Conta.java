@@ -1,24 +1,24 @@
 package aps_java;
 
 /**
- Classe conta: classe abstrata Atributos:
-
-Número da conta;
-Nome do cliente;
-CPF;
-Saldo;
-Métodos:
-
-public boolean sacar(valorSacado);
-public boolean depositar(valorDepositado);
-public String imprimir(); 
-Construtor: que receba o número da conta, código da agência,
-nome do cliente e CPF; Todos os atributos deverão ter get, porém o saldo,
- o número da conta e CPF não poderão ter sets públicos. 
+	 Classe conta: classe abstrata Atributos:
+	
+	Número da conta;
+	Nome do cliente;
+	CPF;
+	Saldo;
+	Métodos:
+	
+	public boolean sacar(valorSacado);
+	public boolean depositar(valorDepositado);
+	public String imprimir(); 
+	Construtor: que receba o número da conta, código da agência,
+	nome do cliente e CPF; Todos os atributos deverão ter get, porém o saldo,
+	o número da conta e CPF não poderão ter sets públicos. 
  */
 
-//checar com o professor se ela precisa ser abstract, eu acho que sim.
-public class Conta {
+
+public abstract class Conta {
     private String nomeCliente, CPF, numConta, agencia;
     private double saldo;
 

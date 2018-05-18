@@ -16,6 +16,11 @@ Construtor: adiciona o nome do gerente aos dois construtores da classe conta cor
 mais o nome do gerente, e o outro construtor recebe todos esses parâmetros e ainda 
 o limite da conta;
  */
-public class ContaEspecial {
+public class ContaEspecial extends ContaCorrente{
+
+	public ContaEspecial(String nomeCliente, String CPF, String numConta, String agencia) {
+		super(nomeCliente, CPF, numConta, agencia);
+		// TODO Auto-generated constructor stub
+	}
     
 }
