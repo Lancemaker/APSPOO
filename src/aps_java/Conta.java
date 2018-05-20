@@ -1,20 +1,20 @@
 package aps_java;
-
+//Teste 
 /**
 	 Classe conta: classe abstrata Atributos:
 	
-	Número da conta;
+	Nï¿½mero da conta;
 	Nome do cliente;
 	CPF;
 	Saldo;
-	Métodos:
+	Mï¿½todos:
 	
 	public boolean sacar(valorSacado);
 	public boolean depositar(valorDepositado);
 	public String imprimir(); 
-	Construtor: que receba o número da conta, código da agência,
-	nome do cliente e CPF; Todos os atributos deverão ter get, porém o saldo,
-	o número da conta e CPF não poderão ter sets públicos. 
+	Construtor: que receba o nï¿½mero da conta, cï¿½digo da agï¿½ncia,
+	nome do cliente e CPF; Todos os atributos deverï¿½o ter get, porï¿½m o saldo,
+	o nï¿½mero da conta e CPF nï¿½o poderï¿½o ter sets pï¿½blicos. 
  */
 
 
