@@ -2,25 +2,34 @@ package aps_java;
 
 /**
 Classe conta especial: Herda de conta corrente, e indica uma conta que possui um
-gerente associado. Para tanto, adiciona as seguintes modificações:
+gerente associado. Para tanto, adiciona as seguintes modificaÃ§Ãµes:
 
 Atributos:
 
-nome do gerente responsável; 
+nome do gerente responsï¿½vel; 
 
-Métodos:
+Mï¿½todos:
 get/set do nome do gerente;
-Modificações no imprimir, para que o nome do gerente seja retornado;
+Modificaï¿½ï¿½es no imprimir, para que o nome do gerente seja retornado;
 Construtor: adiciona o nome do gerente aos dois construtores da classe conta corrente 
-– ou seja, um construtor recebe os três parâmetros necessários à classe conta,
-mais o nome do gerente, e o outro construtor recebe todos esses parâmetros e ainda 
+ï¿½ ou seja, um construtor recebe os trï¿½s parï¿½metros necessï¿½rios ï¿½ classe conta,
+mais o nome do gerente, e o outro construtor recebe todos esses parï¿½metros e ainda 
 o limite da conta;
  */
 public class ContaEspecial extends ContaCorrente{
+        String gerente;
 
-	public ContaEspecial(String nomeCliente, String CPF, String numConta, String agencia) {
-		super(nomeCliente, CPF, numConta, agencia);
-		// TODO Auto-generated constructor stub
-	}
+    public String getGerente() {
+        return gerente;
+    }
+
+    public void setGerente(String gerente) {
+        this.gerente = gerente;
+    }
+
+    public ContaEspecial(String gerente, String nomeCliente, String CPF, String numConta, String agencia) {
+        super(nomeCliente, CPF, numConta, agencia);
+        this.gerente = gerente;
+    }
     
 }
