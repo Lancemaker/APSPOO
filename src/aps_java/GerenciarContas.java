@@ -54,7 +54,7 @@ private ArrayList<Conta> contas = new ArrayList<Conta>();
 	
 	public boolean removerConta(int numeroConta) {
 		for(int i=0; i<contas.size();i++) {
-			if(contas.get(i).getNumConta().equals(Integer.toString(numeroConta))) {
+			if(contas.get(i).getNumConta() == numeroConta) {
 			contas.remove(i);
 			return true;
 			}
@@ -78,7 +78,7 @@ private ArrayList<Conta> contas = new ArrayList<Conta>();
 	
 	public Conta buscarConta(int numeroConta) {
 		for(int i=0; i<contas.size();i++) {
-			if(contas.get(i).getNumConta().equals(Integer.toString(numeroConta))) {			
+			if(contas.get(i).getNumConta() == numeroConta) {			
 			return contas.get(i);
 			}
 		}
@@ -90,12 +90,12 @@ private ArrayList<Conta> contas = new ArrayList<Conta>();
 	}
 	
 	public boolean sacar(int numeroConta, double valorSacado) {
-		
+		return true;//refatorar
 	}
 	public boolean depositar(int numeroConta, double valorDepositado) {
-		
+		return true;//refatorar
 	}
 	public String listarContas() {
-		
+		return "";//refatorar
 	}
 }
