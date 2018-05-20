@@ -92,7 +92,7 @@ private ArrayList<Conta> contas = new ArrayList<Conta>();
 	public boolean sacar(int numeroConta, double valorSacado) {
 		
 	}
-	blic boolean depositar(int numeroConta, double valorDepositado) {
+	public boolean depositar(int numeroConta, double valorDepositado) {
 		
 	}
 	public String listarContas() {
