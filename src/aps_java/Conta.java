@@ -1,5 +1,4 @@
 package aps_java;
-//Teste 
 /**
 	 Classe conta: classe abstrata Atributos:
 	
@@ -19,7 +18,8 @@ package aps_java;
 
 
 public abstract class Conta {
-    private String nomeCliente, CPF, numConta, agencia;
+    private String nomeCliente, CPF;
+    int numConta, agencia;
     private double saldo;
 
     
@@ -40,19 +40,19 @@ public abstract class Conta {
         this.CPF = CPF;
     }
 
-    public String getNumConta() {
+    public int getNumConta() {
         return numConta;
     }
 
-    private void setNumConta(String numConta) {
+    private void setNumConta(int numConta) {
         this.numConta = numConta;
     }
 
-    public String getAgencia() {
+    public int getAgencia() {
         return agencia;
     }
 
-    public void setAgencia(String agencia) {
+    public void setAgencia(int agencia) {
         this.agencia = agencia;
     }
     
@@ -64,27 +64,33 @@ public abstract class Conta {
         this.saldo = saldo;
     }
     //construtor
-    public Conta(String nomeCliente, String CPF, String numConta, String agencia) {
+    public Conta(String nomeCliente, String CPF, int numConta, int agencia) {
         this.nomeCliente = nomeCliente;
         this.CPF = CPF;
         this.numConta = numConta;
         this.agencia = agencia;
     }
     
-   /* public boolean sacar(Objconta.valorSacado,double saldo){
-        if(valorSacado<saldo){
+   public boolean sacar(double valorSacado){
+        if(valorSacado<saldo && valorSacado > 0){
             saldo-= valorSacado;
             return true;
         }
             return false;
     }
     
-    public boolean depositar(valorDeposito,double saldo){
-        if(valorDeposito>0){
-            saldo += valorDeposito;
+    public boolean depositar(double valorDepositado){
+        if(valorDepositado>0){
+            saldo += valorDepositado;
             return true;
         }
             return false;
-    }*/
-    //falta o metodo imprimir.
+    }
+    
+    public String imprimir(){
+        return "Número da conta: "+ numConta+
+                "\nNome do Cliente: "+nomeCliente+
+                "\nCPF: "+CPF+
+                "\nSaldo: "+saldo;
+    }
 }
