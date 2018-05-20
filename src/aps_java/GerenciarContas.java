@@ -89,6 +89,13 @@ private ArrayList<Conta> contas = new ArrayList<Conta>();
 		return true;//refatorar Parei aqui. 
 	}
 	
-	
-	
+	public boolean sacar(int numeroConta, double valorSacado) {
+		
+	}
+	blic boolean depositar(int numeroConta, double valorDepositado) {
+		
+	}
+	public String listarContas() {
+		
+	}
 }
