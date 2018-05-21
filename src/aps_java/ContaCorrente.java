@@ -6,31 +6,70 @@
 package aps_java;
 
 /**
- Classe conta corrente: Herda a classe conta, e adiciona as seguintes modificações:
+ Classe conta corrente: Herda a classe conta, e adiciona as seguintes modificaï¿½ï¿½es:
 
 
 Atributos:
 Limite;
 
-Métodos:
+Mï¿½todos:
 
-public boolean usandoLimite() – retorna true se o cliente estiver utilizando o limite
-(saldo negativo), e false em caso contrário;
+public boolean usandoLimite() ï¿½ retorna true se o cliente estiver utilizando o limite
+(saldo negativo), e false em caso contrï¿½rio;
 
-Reimplementação do sacar, que deve considerar o limite – mesma assinatura do método original,
- apenas com reimplementação;
+Reimplementaï¿½ï¿½o do sacar, que deve considerar o limite ï¿½ mesma assinatura do mï¿½todo original,
+ apenas com reimplementaï¿½ï¿½o;
  
-Mudanças no imprimir, que deve retornar também o limite da conta; 
+Mudanï¿½as no imprimir, que deve retornar tambï¿½m o limite da conta; 
 
-Construtor: gera dois construtores: um que recebe apenas os parâmetros
- necessários ao construtor da classe conta,
-e outro que recebe os mesmos parâmetros mais o limite da conta.
+Construtor: gera dois construtores: um que recebe apenas os parï¿½metros
+ necessï¿½rios ao construtor da classe conta,
+e outro que recebe os mesmos parï¿½metros mais o limite da conta.
  */
 public class ContaCorrente extends Conta{
-
-	public ContaCorrente(String nomeCliente, String CPF, String numConta, String agencia) {
+    
+    private double limite;
+        
+    public ContaCorrente(String nomeCliente, String CPF, String numConta, String agencia, double limite) {
 		super(nomeCliente, CPF, numConta, agencia);
-		// TODO Auto-generated constructor stub
+		this.limite = limite;
 	}
+         
+    public double getLimite() {
+        return limite;
+    }
+
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+    
+    @Override
+    public boolean usandoLimite(){
+        if(saldo < 0)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }  
+    }
+    
+    
+    @Override
+    public boolean sacar(double valorSacado) {
+		if (valorSacado > (saldo + limite)) {
+			return false;
+		}
+		saldo -= valorSacado;
+		if (saldo < 0)
+			limite += saldo;
+		return true;
+	}
+    
+    public void imprmir() {
+		super.imprimir();
+		System.out.println("Limite: " + limite);
+	}
+    
     
 }
