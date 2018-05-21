@@ -6,16 +6,40 @@
 package aps_java;
 
 /**
-Classe conta poupança: Herda a classe conta, e não adiciona atributos.
+Classe conta poupanï¿½a: Herda a classe conta, e nï¿½o adiciona atributos.
 
-Métodos:
+Mï¿½todos:
 
 public void calculaRendimento(porcentagemRendimento): 
-aplica o valor de rendimento recebido por parâmetro ao saldo da conta;
+aplica o valor de rendimento recebido por parï¿½metro ao saldo da conta;
  */
 
 
 //muito facil!
-public class ContaPoupanca {
+// Ã© isso ? kkkk
+
+
+public class ContaPoupanÃ§a extends Conta {
+    
+    private double porcentagemRendimento;
+
+    public double getPorcentagemRendimento() {
+        return porcentagemRendimento;
+    }
+
+    public void setPorcentagemRendimento(double porcentagemRendimento) {
+        this.porcentagemRendimento = porcentagemRendimento;
+    }
+    
+    public void calculaRendimento(double porcentagemRendimento){
+      if(porcentagemRendimento > 0 ){
+         saldo = saldo + ((porcentagemRendimento/100) * (saldo)); 
+          
+      }        
+                
+                
+    }
+    
+    
     
 }
