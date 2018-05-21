@@ -29,12 +29,7 @@ e outro que recebe os mesmos par�metros mais o limite da conta.
 public class ContaCorrente extends Conta{
     
     private double limite;
-        
-    public ContaCorrente(String nomeCliente, String CPF, String numConta, String agencia, double limite) {
-		super(nomeCliente, CPF, numConta, agencia);
-		this.limite = limite;
-	}
-         
+               
     public double getLimite() {
         return limite;
     }
@@ -43,9 +38,8 @@ public class ContaCorrente extends Conta{
         this.limite = limite;
     }
     
-    @Override
     public boolean usandoLimite(){
-        if(saldo < 0)
+        if(getSaldo() < 0)
         {
             return true;
         }
@@ -56,20 +50,27 @@ public class ContaCorrente extends Conta{
     
     
     @Override
-    public boolean sacar(double valorSacado) {
-		if (valorSacado > (saldo + limite)) {
-			return false;
-		}
-		saldo -= valorSacado;
-		if (saldo < 0)
-			limite += saldo;
-		return true;
-	}
+    public boolean sacar(double valorSacado){
+        if(valorSacado < (getSaldo() + getLimite()) && valorSacado > 0){
+            return super.sacar(valorSacado);
+        }
+            return false;
+    }
     
-    public void imprmir() {
+    @Override
+    public String imprimir() {
 		super.imprimir();
-		System.out.println("Limite: " + limite);
+		return "Limite: " + limite;
 	}
+
+    public ContaCorrente(String nomeCliente, String CPF, int numConta, int agencia, double limite) {
+        super(nomeCliente, CPF, numConta, agencia);
+        this.limite = limite;
+    }    
+
+    public ContaCorrente(String nomeCliente, String CPF, int numConta, int agencia) {
+        super(nomeCliente, CPF, numConta, agencia);
+    }
     
     
 }

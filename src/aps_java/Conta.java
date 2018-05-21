@@ -72,7 +72,7 @@ public abstract class Conta {
     }
     
    public boolean sacar(double valorSacado){
-        if(valorSacado<saldo && valorSacado > 0){
+        if(valorSacado > 0){
             saldo-= valorSacado;
             return true;
         }
@@ -88,9 +88,9 @@ public abstract class Conta {
     }
     
     public String imprimir(){
-        return "Número da conta: "+ numConta+
-                "\nNome do Cliente: "+nomeCliente+
-                "\nCPF: "+CPF+
-                "\nSaldo: "+saldo;
+        return "Número da conta: "+ getNumConta()+
+                "\nNome do Cliente: "+getNomeCliente()+
+                "\nCPF: "+getCPF()+
+                "\nSaldo: "+getSaldo();
     }
 }
