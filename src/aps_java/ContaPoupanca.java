@@ -19,9 +19,9 @@ aplica o valor de rendimento recebido por par�metro ao saldo da conta;
 // é isso ? kkkk
 
 
-public class ContaPoupança extends Conta {
+public class ContaPoupanca extends Conta {
     
-    private double porcentagemRendimento;
+	private double porcentagemRendimento;
 
     public double getPorcentagemRendimento() {
         return porcentagemRendimento;
@@ -33,12 +33,13 @@ public class ContaPoupança extends Conta {
     
     public void calculaRendimento(double porcentagemRendimento){
       if(porcentagemRendimento > 0 ){
-         saldo = saldo + ((porcentagemRendimento/100) * (saldo)); 
-          
-      }        
-                
-                
+          depositar((porcentagemRendimento/100) * getSaldo());          
+      }                
     }
+    
+    public ContaPoupanca(String nomeCliente, String CPF, int numConta, int agencia) {
+		super(nomeCliente, CPF, numConta, agencia);		
+	}
     
     
     

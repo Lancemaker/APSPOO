@@ -34,10 +34,6 @@ indicada e realizar o depósito. Caso não encontre o número da conta, ou o depósi
 retornar false;
 
 public String listarContas() – retorna uma String com os dados de todas as contas;
-
-Método main: menu com acesso a todas as opções. No adicionar, lembrar que é possível
-criar uma conta de qualquer um dos três tipos – então você deve perguntar ao usuário
-qual ele quer;
  */
 
 import java.util.ArrayList;
@@ -85,15 +81,22 @@ private ArrayList<Conta> contas = new ArrayList<Conta>();
 		return null;	
 	}
 	
-	public boolean transferirValor(int numeroContaFonte, int numeroContaDestino, double valor) {
-		return true;//refatorar Parei aqui. 
+	public boolean transferirValor(int numeroContaFonte, int numeroContaDestino, double valor) {//é necessario checar o limite. Conta corrente ainda nao foi implementada. 
+		Conta tempContaFonte = buscarConta(numeroContaFonte);
+		Conta tempContaDestino = buscarConta(numeroContaDestino);
+		if(tempContaFonte.getSaldo()>=valor && valor >0) { //nao é uma boa ideia fazer saques iguais a zero, o cliente pode perder dinheiro se houver taxa sobre saques. 
+		return tempContaFonte.sacar(valor)&&tempContaDestino.depositar(valor)?true:false; //retorna verdadeiro se tanto o saque quanto o deposito ocorrerem e retornarem true.			
+		}		
+		return false;//retorna falso se nao houver saldo para saque na conta fonte. 
 	}
 	
-	public boolean sacar(int numeroConta, double valorSacado) {
-		return true;//refatorar
+	public boolean sacar(int numeroConta, double valorSacado) {//é necessario checar o limite.
+		Conta tempConta = buscarConta(numeroConta);
+		return tempConta.sacar(valorSacado);
 	}
 	public boolean depositar(int numeroConta, double valorDepositado) {
-		return true;//refatorar
+		Conta tempConta = buscarConta(numeroConta);
+		return tempConta.depositar(valorDepositado);
 	}
 	public String listarContas() {
 		return "";//refatorar
