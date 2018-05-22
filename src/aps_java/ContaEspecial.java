@@ -17,7 +17,7 @@ mais o nome do gerente, e o outro construtor recebe todos esses par�metros e a
 o limite da conta;
  */
 public class ContaEspecial extends ContaCorrente{
-        String gerente;
+        private String gerente;
 
     public String getGerente() {
         return gerente;
@@ -26,10 +26,22 @@ public class ContaEspecial extends ContaCorrente{
     public void setGerente(String gerente) {
         this.gerente = gerente;
     }
+        @Override
+    public String imprimir() {
+		super.imprimir();
+		return "Gerente: " + gerente;
+	}
 
-    public ContaEspecial(String gerente, String nomeCliente, String CPF, String numConta, String agencia) {
+    public ContaEspecial(String nomeCliente, String CPF, int numConta, int agencia, double limite) {
+        super(nomeCliente, CPF, numConta, agencia, limite);
+        this.gerente = gerente;
+    }
+
+    public ContaEspecial(String nomeCliente, String CPF, int numConta, int agencia) {
         super(nomeCliente, CPF, numConta, agencia);
         this.gerente = gerente;
     }
+
+    
     
 }
