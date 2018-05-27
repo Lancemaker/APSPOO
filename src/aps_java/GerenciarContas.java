@@ -41,10 +41,8 @@ import java.util.ArrayList;
 public class GerenciarContas {
 private ArrayList<Conta> contas = new ArrayList<Conta>();
 
-	//metodos:
 	
-	//adiciona uma conta à lista. 
-	public void adicionarConta(Conta c) {
+	public void adicionarConta(Conta c) { //adiciona uma conta à lista. 
 		contas.add(c);
 	}
 	
@@ -62,14 +60,23 @@ private ArrayList<Conta> contas = new ArrayList<Conta>();
 		String string="";
 		for(int i=0; i<contas.size();i++) {
 			if(contas.get(i) instanceof ContaEspecial) {					
-					string+= contas.get(i).getNumConta();//refatorar quando o metodo imprimir da classe ContaEspecial estiver pronto Deveria retornar todos os dados e nao so o numero da conta.
+					string+= contas.get(i).imprimir();
 			}		
 		}
 		return string;
 	}
 	
 	public String buscarClientesUsandoLimite() {
-		return "Precisa refatorar";		//Atributo limite ainda nao foi implementado na classe ContaCorrente.
+		String s ="";
+		for (Conta conta : contas) {
+			if((conta instanceof ContaCorrente || conta instanceof ContaEspecial)) {
+				ContaCorrente cc = (ContaCorrente)conta; 
+				if(cc.usandoLimite()) {
+					s+=cc.imprimir();
+				}
+			}
+		}
+		return s.equals("")?"nenhuma Conta Encontrada":s;		
 	}
 	
 	public Conta buscarConta(int numeroConta) {
@@ -81,24 +88,40 @@ private ArrayList<Conta> contas = new ArrayList<Conta>();
 		return null;	
 	}
 	
-	public boolean transferirValor(int numeroContaFonte, int numeroContaDestino, double valor) {//é necessario checar o limite. Conta corrente ainda nao foi implementada. 
+	public boolean transferirValor(int numeroContaFonte, int numeroContaDestino, double valor) {
 		Conta tempContaFonte = buscarConta(numeroContaFonte);
-		Conta tempContaDestino = buscarConta(numeroContaDestino);
-		if(tempContaFonte.getSaldo()>=valor && valor >0) { //nao é uma boa ideia fazer saques iguais a zero, o cliente pode perder dinheiro se houver taxa sobre saques. 
-		return tempContaFonte.sacar(valor)&&tempContaDestino.depositar(valor)?true:false; //retorna verdadeiro se tanto o saque quanto o deposito ocorrerem e retornarem true.			
+		Conta tempContaDestino = buscarConta(numeroContaDestino);		
+		
+		if((tempContaFonte instanceof ContaCorrente || tempContaFonte instanceof ContaEspecial)) {// garante que se use o metodo especifico de saque da conta corrente que utiliza saldo.
+			ContaCorrente cc = (ContaCorrente)tempContaFonte; 
+			if(cc.usandoLimite()) {
+				if((cc.getSaldo()>=valor) && valor >0) { 
+					return cc.sacar(valor)&&tempContaDestino.depositar(valor)?true:false; //retorna verdadeiro se tanto o saque quanto o deposito ocorrerem e retornarem true, caso contrario retorna falso.			
+				}
+			}
+		}	
+		
+		else if((tempContaFonte.getSaldo()>=valor) && valor >0) { 
+		return tempContaFonte.sacar(valor)&&tempContaDestino.depositar(valor)?true:false; //retorna verdadeiro se tanto o saque quanto o deposito ocorrerem e retornarem true, caso contrario retorna falso.			
 		}		
-		return false;//retorna falso se nao houver saldo para saque na conta fonte. 
+		return false;//retorna falso se nao houver saldo ou limite para saque. 
 	}
 	
-	public boolean sacar(int numeroConta, double valorSacado) {//é necessario checar o limite.
+	public boolean sacar(int numeroConta, double valorSacado) {
 		Conta tempConta = buscarConta(numeroConta);
 		return tempConta.sacar(valorSacado);
 	}
+	
 	public boolean depositar(int numeroConta, double valorDepositado) {
 		Conta tempConta = buscarConta(numeroConta);
 		return tempConta.depositar(valorDepositado);
 	}
+	
 	public String listarContas() {
-		return "";//refatorar
+		String s="";
+		for (Conta conta : contas) {	
+			s+= (conta.getClass())+" "+conta.imprimir(); 
+		}
+		return s;
 	}
 }
