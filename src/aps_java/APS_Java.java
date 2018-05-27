@@ -3,23 +3,11 @@ import java.util.Scanner;
 public class APS_Java {
     
     
-   public static void menu(){
-        System.out.println("Informe a opção desejada: ");
-        System.out.println("--------------------- Opções ---------------------");
-        System.out.println("1 - Adicionar Cliente");
-        System.out.println("2 - Remover Cliente");
-        System.out.println("3 - Editar Cliente");
-        System.out.println("4 - Buscar por Nome");
-        System.out.println("5 - Buscar por CPF");
-        System.out.println("6 - Sair");
-   }
-   
-   public static void adicionarConta(){
+  public static void adicionarConta(){
        
    }
    
    public static void remover(){
-       
    }
    
    public static void editar(){
@@ -34,14 +22,16 @@ public class APS_Java {
        
    }
    
-   
     public static void main(String[] args) {
         
+        GerenciarContas gerenciador = new GerenciarContas();
         Scanner entrada = new Scanner(System.in);
         
-        String nomeCliente, CPF, gerente;
-        int numConta, agencia, opção;
-        double saldo, limite, porcentagemRendimento;     
+        int opcao;
+        
+        // String nomeCliente, CPF, gerente;
+        // int numConta, agencia;
+        // double saldo, limite, porcentagemRendimento;     
         
 //        System.out.println("Digite o nome do cliente: ");
 //        nomeCliente = entrada.nextLine();
@@ -62,7 +52,7 @@ public class APS_Java {
         
         do {
         
-        System.out.println("Informe a opção desejada: ");
+        System.out.println("Informe a opcao desejada: ");
         System.out.println("--------------------- Opções ---------------------");
         System.out.println("1 - Adicionar Cliente");
         System.out.println("2 - Remover Cliente");
@@ -71,22 +61,23 @@ public class APS_Java {
         System.out.println("5 - Buscar por CPF");
         System.out.println("6 - Sair");
         
-        opção = entrada.nextInt();
+        opcao = entrada.nextInt();
         entrada.nextLine();
         
-        switch(opção){
+        //case com opções do menu
+        switch(opcao){
                 case 1:
                     adicionarConta();
-                    System.out.println("Informe a opção desejada: ");
+                    System.out.println("Informe a opcao desejada: ");
                     System.out.println("--------------------- Opções ---------------------");
                     System.out.println("1 - Conta Corrente");
                     System.out.println("2 - Conta Especial");
                     System.out.println("3 - Conta Poupança");
                     
-                    opção = entrada.nextInt();
+                    opcao = entrada.nextInt();
                     entrada.nextLine();
                     
-                    switch(opção){
+                    switch(opcao){
                         case 1:
                             System.out.println(ContaCorrente.class);
                             break;
@@ -100,7 +91,14 @@ public class APS_Java {
                     
                     break;
                 case 2:
-                    remover();
+                    System.out.println("Digite o numero da conta que deseja remover: ");
+                       int numeroConta = entrada.nextInt();
+                   System.out.println("Você tem certeza que deseja remover esta conta? Aperte 1 para Sim e 2 para Não");
+                   if(opcao == 1){ 
+                    System.out.println(gerenciador.removerConta(numeroConta));
+                   } else
+                        System.out.println(""); //retornar ao menu
+                       
                     break;
                 case 3:
                     editar();
@@ -111,8 +109,16 @@ public class APS_Java {
                 case 5:
                      buscarPorCPF();
                      break;
+                case 6:
+                    System.out.println("Obrigado!");
+                    System.exit(1);
+                   break;
+                default:
+                    System.out.println("Opção incorreta! Tente novamente!");
+                    
             }
         }
-        while (opção != 5);
+        while (opcao != 7);
     }
 }
+
