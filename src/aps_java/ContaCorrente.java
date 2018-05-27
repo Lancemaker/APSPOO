@@ -59,8 +59,7 @@ public class ContaCorrente extends Conta{
     
     @Override
     public String imprimir() {
-		super.imprimir();
-		return "Limite: " + limite;
+		return  super.imprimir()+"\nlimite :"+getLimite() ;
 	}
 
     public ContaCorrente(String nomeCliente, String CPF, int numConta, int agencia, double limite) {

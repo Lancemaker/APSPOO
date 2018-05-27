@@ -88,7 +88,7 @@ public abstract class Conta {
     }
     
     public String imprimir(){
-        return "Número da conta: "+ getNumConta()+
+        return "numero da conta: "+ getNumConta()+
                 "\nNome do Cliente: "+getNomeCliente()+
                 "\nCPF: "+getCPF()+
                 "\nSaldo: "+getSaldo();

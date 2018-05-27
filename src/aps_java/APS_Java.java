@@ -1,65 +1,78 @@
 package aps_java;
 import java.util.Scanner;
-public class APS_Java {
-    
-    
-  public static void adicionarConta(){
-       
-   }
-   
-   public static void remover(){
-   }
-   
-   public static void editar(){
-       
-   }
-   
-   public static void buscarPorNome(){
-       
-   }
-   
-   public static void buscarPorCPF(){
-       
-   }
-   
+public class APS_Java {   
+	
+	static String PegaNome(Scanner entrada) {
+		System.out.println("Digite o nome do cliente: ");
+	    return entrada.nextLine();
+	}
+	
+	static String PegaCPF(Scanner entrada) {
+		System.out.println("Digite o CPF do cliente: ");
+	    return entrada.nextLine();
+	}
+	
+	static String PegaNomeDoGerente(Scanner entrada) {
+		System.out.println("Digite o nome do gerente: ");
+	    return entrada.nextLine();
+	}
+	
+	static int PegaNumeroDaConta(Scanner entrada) {
+		System.out.println("Digite o numero da conta: ");
+	    return entrada.nextInt();
+	}
+	
+	static int PegaNumeroDaContaFonte(Scanner entrada) {
+		System.out.println("Digite o numero da conta Fonte: ");
+	    return entrada.nextInt();
+	}
+	
+	static int PegaNumeroDaContaDestino(Scanner entrada) {
+		System.out.println("Digite o numero da conta Destino: ");
+	    return entrada.nextInt();
+	}
+	
+	static int PegaAgencia(Scanner entrada) {
+		System.out.println("Digite o codigo da agencia: ");
+	    return entrada.nextInt();
+	}
+	
+	static double PegaLimite(Scanner entrada) {
+		System.out.println("Digite o limite: ");
+	    return entrada.nextDouble();
+	}
+	
+	static double PegaValor(Scanner entrada) {
+		System.out.println("Digite o valor: ");
+	    return entrada.nextDouble();
+	}
+	
+	static double PegaRendimento(Scanner entrada){
+		System.out.println("Digite a porcentagem de Rendimento: ");
+	    return entrada.nextDouble();
+	}
     public static void main(String[] args) {
         
-        GerenciarContas gerenciador = new GerenciarContas();
-        Scanner entrada = new Scanner(System.in);
+        GerenciarContas manager = new GerenciarContas();
+        Scanner entrada = new Scanner(System.in);     
+      
+      
         
         int opcao;
         
-        // String nomeCliente, CPF, gerente;
-        // int numConta, agencia;
-        // double saldo, limite, porcentagemRendimento;     
-        
-//        System.out.println("Digite o nome do cliente: ");
-//        nomeCliente = entrada.nextLine();
-//        System.out.println("Digite o CPF do cliente: ");
-//        CPF = entrada.nextLine();
-//        System.out.println("Digite o nome do gerente: ");
-//        gerente = entrada.nextLine();
-//        System.out.println("Digite o numero da conta: ");
-//        numConta = entrada.nextInt();
-//        System.out.println("Digite o codigo da agencia: ");
-//        agencia = entrada.nextInt();
-//        System.out.println("Digite o saldo: ");
-//        saldo = entrada.nextDouble();
-//        System.out.println("Digite o limite do cartao: ");
-//        limite = entrada.nextDouble();
-//        System.out.println("Digite a porcentagem de Rendimento: ");
-//        porcentagemRendimento = entrada.nextDouble();
-        
         do {
-        
         System.out.println("Informe a opcao desejada: ");
-        System.out.println("--------------------- Opções ---------------------");
-        System.out.println("1 - Adicionar Cliente");
-        System.out.println("2 - Remover Cliente");
-        System.out.println("3 - Editar Cliente");
-        System.out.println("4 - Buscar por Nome");
-        System.out.println("5 - Buscar por CPF");
-        System.out.println("6 - Sair");
+        System.out.println("--------------------- Opcoes ---------------------");
+        System.out.println("1 - Adicionar Conta");
+        System.out.println("2 - Remover Conta");
+        System.out.println("3 - Buscar Contas Especiais");
+        System.out.println("4 - Buscar Cliente Usando Limite");
+        System.out.println("5 - Buscar conta");
+        System.out.println("6 - Transferir Valores entre contas");
+        System.out.println("7 - Sacar");
+        System.out.println("8 - Depositar");
+        System.out.println("9 - Listar contas");
+        System.out.println("10 - sair");
         
         opcao = entrada.nextInt();
         entrada.nextLine();
@@ -67,25 +80,27 @@ public class APS_Java {
         //case com opções do menu
         switch(opcao){
                 case 1:
-                    adicionarConta();
+                    
                     System.out.println("Informe a opcao desejada: ");
-                    System.out.println("--------------------- Opções ---------------------");
+                    System.out.println("--------------------- Opcoes ---------------------");
                     System.out.println("1 - Conta Corrente");
                     System.out.println("2 - Conta Especial");
-                    System.out.println("3 - Conta Poupança");
+                    System.out.println("3 - Conta Poupanca");
                     
                     opcao = entrada.nextInt();
-                    entrada.nextLine();
-                    
+                    entrada.nextLine();                    
                     switch(opcao){
                         case 1:
-                            System.out.println(ContaCorrente.class);
+                            manager.adicionarConta((Conta) new ContaCorrente(PegaNome(entrada),PegaCPF(entrada),PegaNumeroDaConta(entrada),PegaAgencia(entrada),PegaLimite(entrada)));
+                            entrada.nextLine();
                             break;
                         case 2:
-                            System.out.println(ContaEspecial.class);
+                            manager.adicionarConta((Conta) new ContaEspecial(PegaNome(entrada),PegaCPF(entrada),PegaNumeroDaConta(entrada),PegaAgencia(entrada),PegaLimite(entrada),PegaNomeDoGerente(entrada)));;
+                            entrada.nextLine();
                             break;
                         case 3: 
-                            System.out.println(ContaPoupanca.class);
+                            System.out.println((Conta) new ContaPoupanca(PegaNome(entrada),PegaCPF(entrada),PegaNumeroDaConta(entrada),PegaAgencia(entrada)));
+                            entrada.nextLine();
                             break;
                     }
                     
@@ -93,32 +108,45 @@ public class APS_Java {
                 case 2:
                     System.out.println("Digite o numero da conta que deseja remover: ");
                        int numeroConta = entrada.nextInt();
-                   System.out.println("Você tem certeza que deseja remover esta conta? Aperte 1 para Sim e 2 para Não");
+                   System.out.println("Você tem certeza que deseja remover esta conta? Aperte 1 para Sim e 2 para N�o");
                    if(opcao == 1){ 
-                    System.out.println(gerenciador.removerConta(numeroConta));
+                    System.out.println(manager.removerConta(numeroConta));
                    } else
-                        System.out.println(""); //retornar ao menu
+                        System.out.println("");
                        
                     break;
                 case 3:
-                    editar();
-                    break;
+                    System.out.println(manager.buscarContasEspeciais());
                 case 4:
-                    buscarPorNome();
+                	System.out.println(manager.buscarClientesUsandoLimite());
                     break;
-                case 5:
-                     buscarPorCPF();
+                case 5:                	 
+                     System.out.println(manager.buscarConta(PegaNumeroDaConta(entrada)));
+                     entrada.nextLine();
                      break;
+                     
                 case 6:
+                	System.out.println(manager.transferirValor(PegaNumeroDaContaFonte(entrada), PegaNumeroDaContaDestino(entrada), PegaValor(entrada))?"Transferencia realizada com sucesso":"transferencia falhou");
+                	break;
+                case 7:
+                	System.out.println(manager.sacar(PegaNumeroDaConta(entrada), PegaValor(entrada)));
+                	break;
+                case 8:
+                	System.out.println(manager.depositar(PegaNumeroDaConta(entrada), PegaValor(entrada)));
+                	break;
+                case 9:
+                	System.out.println(manager.listarContas());
+                	break;                     
+                case 10:                	
                     System.out.println("Obrigado!");
                     System.exit(1);
                    break;
                 default:
-                    System.out.println("Opção incorreta! Tente novamente!");
+                    System.out.println("Opcao incorreta! Tente novamente!");
                     
             }
         }
-        while (opcao != 7);
+        while (opcao != 6);
     }
 }
 

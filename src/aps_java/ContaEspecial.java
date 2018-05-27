@@ -26,22 +26,19 @@ public class ContaEspecial extends ContaCorrente{
     public void setGerente(String gerente) {
         this.gerente = gerente;
     }
-        @Override
+    @Override
     public String imprimir() {
 		super.imprimir();
 		return "Gerente: " + gerente;
 	}
 
-    public ContaEspecial(String nomeCliente, String CPF, int numConta, int agencia, double limite) {
+    public ContaEspecial(String nomeCliente, String CPF, int numConta, int agencia, double limite, String gerente) {
         super(nomeCliente, CPF, numConta, agencia, limite);
         this.gerente = gerente;
     }
 
-    public ContaEspecial(String nomeCliente, String CPF, int numConta, int agencia) {
+    public ContaEspecial(String nomeCliente, String CPF, int numConta, int agencia,String gerente) {
         super(nomeCliente, CPF, numConta, agencia);
         this.gerente = gerente;
-    }
-
-    
-    
+    }   
 }

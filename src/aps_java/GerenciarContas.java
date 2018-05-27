@@ -119,8 +119,8 @@ private ArrayList<Conta> contas = new ArrayList<Conta>();
 	
 	public String listarContas() {
 		String s="";
-		for (Conta conta : contas) {	
-			s+= (conta.getClass())+" "+conta.imprimir(); 
+		for (Conta conta : contas) {		
+			s+= "tipo de conta: "+(conta.getClass().toString().split("\\.")[1])+"\n"+conta.imprimir()+"\n ---------------------"; 
 		}
 		return s;
 	}
