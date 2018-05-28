@@ -1,39 +1,39 @@
 package aps_java;
 /**
-Classe gerenciarContas – reúne todas as contas criadas
+Classe gerenciarContas ï¿½ reï¿½ne todas as contas criadas
 
 Atributos:
 
 ArrayList de objetos da classe conta;
-Métodos:
+Mï¿½todos:
 
 public void adicionarConta(Conta c);
 
-public boolean removerConta(int numeroConta) – retorna true se conseguir encontrar e
-remover a conta, false em caso contrário;
+public boolean removerConta(int numeroConta) ï¿½ retorna true se conseguir encontrar e
+remover a conta, false em caso contrï¿½rio;
 
-public String buscarContasEspeciais() – busca todas as contas especiais,
+public String buscarContasEspeciais() ï¿½ busca todas as contas especiais,
 
-guardando os dados dessas contas em uma String e então retornando o resultado da busca;
+guardando os dados dessas contas em uma String e entï¿½o retornando o resultado da busca;
 
-public String buscarClientesUsandoLimite() – busca todos os clientes de conta corrente que 
-estejam utilizando o limite, guardando os dados dessas contas em uma String e então 
+public String buscarClientesUsandoLimite() ï¿½ busca todos os clientes de conta corrente que 
+estejam utilizando o limite, guardando os dados dessas contas em uma String e entï¿½o 
 retornando o resultado da busca;
 
-public Conta buscarConta(int numeroConta) – busca uma conta pelo seu número, e a 
-retorna se encontrar. Caso a conta não exista, deve retornar null;
+public Conta buscarConta(int numeroConta) ï¿½ busca uma conta pelo seu nï¿½mero, e a 
+retorna se encontrar. Caso a conta nï¿½o exista, deve retornar null;
 
 public boolean transferirValor(int numeroContaFonte, int numeroContaDestino, double valor)
 
-public boolean sacar(int numeroConta, double valorSacado) – deve buscar a conta indicada
-pelo número e então sacar o valor especificado, usando o método de sacar da conta.
-Se a conta não for encontrada, ou o valor não puder ser sacado, retorna false;
+public boolean sacar(int numeroConta, double valorSacado) ï¿½ deve buscar a conta indicada
+pelo nï¿½mero e entï¿½o sacar o valor especificado, usando o mï¿½todo de sacar da conta.
+Se a conta nï¿½o for encontrada, ou o valor nï¿½o puder ser sacado, retorna false;
 
-public boolean depositar(int numeroConta, double valorDepositado) – deve buscar a conta 
-indicada e realizar o depósito. Caso não encontre o número da conta, ou o depósito falhe,
+public boolean depositar(int numeroConta, double valorDepositado) ï¿½ deve buscar a conta 
+indicada e realizar o depï¿½sito. Caso nï¿½o encontre o nï¿½mero da conta, ou o depï¿½sito falhe,
 retornar false;
 
-public String listarContas() – retorna uma String com os dados de todas as contas;
+public String listarContas() ï¿½ retorna uma String com os dados de todas as contas;
  */
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class GerenciarContas {
 private ArrayList<Conta> contas = new ArrayList<Conta>();
 
 	
-	public void adicionarConta(Conta c) { //adiciona uma conta à lista. 
+	public void adicionarConta(Conta c) { //adiciona uma conta ï¿½ lista. 
 		contas.add(c);
 	}
 	
@@ -120,7 +120,7 @@ private ArrayList<Conta> contas = new ArrayList<Conta>();
 	public String listarContas() {
 		String s="";
 		for (Conta conta : contas) {		
-			s+= "tipo de conta: "+(conta.getClass().toString().split("\\.")[1])+"\n"+conta.imprimir()+"\n ---------------------"; 
+			s+= "tipo de conta: "+(conta.getClass().toString().split("\\.")[1])+"\n"+conta.imprimir()+"\n ---------------------\n"; 
 		}
 		return s;
 	}
