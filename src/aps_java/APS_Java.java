@@ -110,7 +110,7 @@ public class APS_Java {
                     System.out.println("Digite o numero da conta que deseja remover: ");
                        int numeroConta = entrada.nextInt();
                    System.out.println("VocÃª tem certeza que deseja remover esta conta? Aperte 1 para Sim e 2 para Não");
-                   if(opcao == 1){ 
+                   if(entrada.nextInt() == 1){ 
                     System.out.println(manager.removerConta(numeroConta));
                    } else
                         System.out.println("");
