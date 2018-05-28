@@ -28,7 +28,7 @@ public class ContaEspecial extends ContaCorrente{
     }
     @Override
     public String imprimir() {
-    	return  super.imprimir()+"\nGerente: " +gerente;
+    	return  super.imprimir()+"\nGerente: " +getGerente();
 	}
 
     public ContaEspecial(String nomeCliente, String CPF, int numConta, int agencia, double limite, String gerente) {

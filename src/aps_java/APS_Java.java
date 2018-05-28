@@ -13,6 +13,7 @@ public class APS_Java {
 	}
 	
 	static String PegaNomeDoGerente(Scanner entrada) {
+		entrada.nextLine();
 		System.out.println("Digite o nome do gerente: ");
 	    return entrada.nextLine();
 	}
@@ -44,7 +45,7 @@ public class APS_Java {
 	
 	static double PegaValor(Scanner entrada) {
 		System.out.println("Digite o valor: ");
-	    return entrada.nextDouble();
+		return entrada.nextDouble();
 	}
 	
 	static double PegaRendimento(Scanner entrada){
@@ -99,7 +100,7 @@ public class APS_Java {
                             entrada.nextLine();
                             break;
                         case 3: 
-                            System.out.println((Conta) new ContaPoupanca(PegaNome(entrada),PegaCPF(entrada),PegaNumeroDaConta(entrada),PegaAgencia(entrada)));
+                            manager.adicionarConta((Conta) new ContaPoupanca(PegaNome(entrada),PegaCPF(entrada),PegaNumeroDaConta(entrada),PegaAgencia(entrada)));
                             entrada.nextLine();
                             break;
                     }
@@ -108,7 +109,7 @@ public class APS_Java {
                 case 2:
                     System.out.println("Digite o numero da conta que deseja remover: ");
                        int numeroConta = entrada.nextInt();
-                   System.out.println("Você tem certeza que deseja remover esta conta? Aperte 1 para Sim e 2 para N�o");
+                   System.out.println("Você tem certeza que deseja remover esta conta? Aperte 1 para Sim e 2 para N�o");
                    if(opcao == 1){ 
                     System.out.println(manager.removerConta(numeroConta));
                    } else
@@ -139,13 +140,14 @@ public class APS_Java {
                 	break;                     
                 case 10:                	
                     System.out.println("Obrigado!");
+                    System.exit(1);
                    break;
                 default:
                     System.out.println("Opcao incorreta! Tente novamente!");
                     
             }
         }
-        while (opcao != 10);
+        while (opcao != 6);
     }
 }
 
