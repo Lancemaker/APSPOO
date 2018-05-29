@@ -51,7 +51,7 @@ public class ContaCorrente extends Conta{
     
     @Override
     public boolean sacar(double valorSacado){
-        if(valorSacado < (getSaldo() + getLimite()) && valorSacado > 0){
+        if(valorSacado <= (getSaldo() + getLimite()) && valorSacado > 0){
             return super.sacar(valorSacado);
         }
             return false;

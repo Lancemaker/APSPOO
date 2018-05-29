@@ -95,7 +95,7 @@ private ArrayList<Conta> contas = new ArrayList<Conta>();
 		if((tempContaFonte instanceof ContaCorrente || tempContaFonte instanceof ContaEspecial)) {// garante que se use o metodo especifico de saque da conta corrente que utiliza saldo.
 			ContaCorrente cc = (ContaCorrente)tempContaFonte; 
 			if(cc.usandoLimite()) {
-				if((cc.getSaldo()>=valor) && valor >0) { 
+				if((cc.getSaldo()+cc.getLimite()>=valor) && valor >0) { 
 					return cc.sacar(valor)&&tempContaDestino.depositar(valor)?true:false; //retorna verdadeiro se tanto o saque quanto o deposito ocorrerem e retornarem true, caso contrario retorna falso.			
 				}
 			}
