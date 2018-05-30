@@ -98,7 +98,14 @@ private ArrayList<Conta> contas = new ArrayList<Conta>();
 				if((cc.getSaldo()+cc.getLimite()>=valor) && valor >0) { 
 					return cc.sacar(valor)&&tempContaDestino.depositar(valor)?true:false; //retorna verdadeiro se tanto o saque quanto o deposito ocorrerem e retornarem true, caso contrario retorna falso.			
 				}
+				else {
+					return false;
+				}
 			}
+			else {
+				return cc.sacar(valor)&&tempContaDestino.depositar(valor)?true:false;
+			}
+			
 		}	
 		
 		else if((tempContaFonte.getSaldo()>=valor) && valor >0) { 

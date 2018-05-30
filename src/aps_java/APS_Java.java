@@ -127,7 +127,7 @@ public class APS_Java {
                      break;
                      
                 case 6:
-                	System.out.println(manager.transferirValor(PegaNumeroDaContaFonte(entrada), PegaNumeroDaContaDestino(entrada), PegaValor(entrada))?"Transferencia realizada com sucesso":"transferencia falhou");
+                	System.out.println(manager.transferirValor(PegaNumeroDaContaFonte(entrada), PegaNumeroDaContaDestino(entrada), PegaValor(entrada)));                	
                 	break;
                 case 7:
                 	System.out.println(manager.sacar(PegaNumeroDaConta(entrada), PegaValor(entrada)));
@@ -147,7 +147,7 @@ public class APS_Java {
                     
             }
         }
-        while (opcao != 6);
+        while (opcao != 10);
     }
 }
 
